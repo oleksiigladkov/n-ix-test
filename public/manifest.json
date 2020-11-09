@@ -1,0 +1,25 @@
+{
+  "short_name": "N-iX test App",
+  "name": "N-iX test App",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "n-ix-logo192.png",
+      "type": "image/png",
+      "sizes": "71x26"
+    },
+    {
+      "src": "n-ix-logo512.png",
+      "type": "image/png",
+      "sizes": "71x26"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#f58220",
+  "background_color": "#ffffff"
+}

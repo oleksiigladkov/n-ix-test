@@ -1,0 +1,330 @@
+/* ------------------------------------------------------- */
+/* ------------------------ Common------------------------ */
+/* ------------------------------------------------------- */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  min-height: 100%;
+  font-size: 14px;
+}
+
+code, pre {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-size: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  font-size: 12px;
+  margin: 0;
+}
+
+hr {
+  height: 1px;
+}
+
+a {
+  color: #f58220;
+  text-decoration: none;
+}
+a:hover, a:active {
+  color: #c05d09;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/*---------------------------------------Common blocks-------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+/* Wrapper styles */
+body {
+  position: relative;
+}
+#root, .app {
+  position: relative;
+  min-height: 100%;
+  height: 100%;
+}
+.wrapper {
+  box-sizing: border-box;
+  min-height: 100%;
+  padding-bottom: 48px;
+}
+.fit-content {
+  width: fit-content;
+  display: table;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* -------------------------------------Global overlay---------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+.overlay {
+  position: fixed;
+  z-index: 1001;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+}
+.overlay .spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+/*-------------------------------------------------------------------------------------------------*/
+/* -------------------------------------Header styles----------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+.header {
+  height: fit-content;
+}
+.header img {
+  height: 1.5em;
+  max-height: 1.5em;
+}
+.header .active {
+  color: #c05d09;
+}
+.header a + a {
+  margin-left: 1em;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* -------------------------------------Footer styles----------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  max-height: 48px;
+  height: 48px;
+  margin-top: -48px;
+  /* padding: 0 0 0 100px; */
+}
+@media (max-width: 768px) {
+  .footer {
+    padding: 0;
+  }
+}
+@media (max-width: 575px) {
+  .footer {
+    padding: 0 0;
+  }
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* -------------------------------------Page styles----------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------*/
+.page {
+  margin: 15px inherit;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/*------------------------------------------Pages------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------Home page-----------------------------------------------*/
+.landing {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.landing-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .landing-logo {
+    animation: App-logo-float infinite 3s ease-in-out;
+  }
+}
+
+.landing-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+@keyframes landing-logo-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px)
+  }
+  100% {
+    transform: translateY(0px)
+  }
+}
+
+/*---------------------------------------Stations page-------------------------------------------*/
+.stations .hidden {
+  display: none;
+}
+.stations .sortable {
+  cursor: pointer;
+}
+.stations td {
+  border-top: none;
+  max-height: 145px;
+}
+.stations th.name, .stations audio {
+  width: 260px;
+}
+
+.stations th .name, .stations th.description {
+  text-decoration: underline;
+}
+
+.stations .sortable {
+  cursor: pointer;
+}
+
+.stations td .index, .stations .tag {
+  padding: 0 0.5em;
+  border-radius: 0.25em;
+}
+
+.stations .tags {
+  display: flex;
+  width: 100%;
+  padding: 0 0 0.5em 0;
+}
+.stations .tags .title {
+  width: 7em;
+}
+.stations .tags .list {
+  flex-grow: 1;
+  margin-top: -0.5em;
+}
+.stations .tag {
+  display: inline-block;
+  margin: 0.5em 0 0 0.5em;
+}
+.stations .tag:hover {
+  background: #f58220;
+}
+.stations .tag.selected {
+  background-color: #f58220;
+}
+
+.stations .search {
+  margin-top: 0.5em;
+  text-transform: capitalize;
+}
+.stations .search input[type="search"]::-webkit-search-cancel-button {
+  /* Remove default */
+  /* -webkit-appearance: none; */
+  
+  height: 10px;
+  width: 10px;
+  cursor: pointer;
+}
+.stations .search label {
+  width: 3.75em;
+}
+.stations .search input {
+  margin-left: 0.5em;
+  width: auto;
+  height: auto;
+  padding: 0.25rem 0.75rem;
+  line-height: 1.5;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #f58220;
+  border-radius: 0.25rem;
+}
+.stations .search input:hover,
+.stations .search input:focus {
+  border-color:#f58220;
+  outline: none;
+}
+
+.stations .index img {
+  width: 1.5em;
+}
+
+.stations .stationRow {
+  cursor: pointer;
+}
+
+.stations .preview {
+  cursor: pointer;
+}
+
+.stations .tag {
+  cursor: pointer;
+}
+.stations .tag.selected {
+  background:#f58220;
+}
+.stations .info {
+  overflow: hidden;
+}
+.stations .info .logo, .stations .info .indexes {
+  width: 25%;
+  float: left;
+}
+.stations .info .indexes {
+  width: 75%;
+}
+.stations .info .index img {
+  margin-top: -4px;
+}
+
+.stations audio:focus {
+  border-radius: 5px;
+  outline: none;
+}
+.stations audio::-webkit-media-controls-timeline-container,
+.stations audio::-webkit-media-controls-current-time-display,
+.stations audio::-webkit-media-controls-time-remaining-display {
+  display: block;
+}
+.stations audio::-webkit-media-controls-enclosure {
+  background: transparent;
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/*------------------------------------------Utils------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.flex-centered {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
